@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xadrez Brasil - Perfil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../Estilo/style.css">
+    <link rel="stylesheet" href="../Estilo/perfil.css">
+</head>
+<body>
+
+    <div class="menu-container">
+        <div class="menu-box">
+            
+            <a href="../index.html" class="btn-voltar">⬅ Voltar</a>
+            
+            <h2 class="main-title">MEU PERFIL</h2>
+            
+            <img id="avatar-preview" src="" class="perfil-avatar-grande" alt="Meu Avatar">
+            
+            <div class="rating-box">Rating: <span id="display-rating">800</span></div>
+            
+            <div class="option-group">
+                <label>Nome de Jogador:</label>
+                <input type="text" id="input-nome" class="input-nome" placeholder="Digite seu nome...">
+            </div>
+
+            <div class="option-group galeria-container">
+                <label>Escolher Avatar:</label>
+                <div class="galeria-fotos" id="galeria-fotos"></div>
+            </div>
+
+            <button id="btn-salvar" class="btn-salvar">Salvar Alterações</button>
+
+        </div>
+    </div>
+
+    <script type="module" src="../Script/perfil/perfil.js"></script>
+</body>
+</html>

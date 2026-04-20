@@ -1,0 +1,420 @@
+:root {
+    --light-square: #ebecd0;
+    --dark-square: #779556;
+    --dark-square-hover: #8bb166;
+    --bg-main: #312e2b;
+    --bg-menu: rgba(26, 26, 26, 0.85);
+    --border-color: #3d3d3d;
+    --text-light: #f2e3d5;
+    --text-muted: #aaa;
+    --accent-gold: gold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: var(--light-square);
+    overflow-x: hidden;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 60px 0 20px 0;
+}
+
+.menu-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    background-color: var(--bg-menu);
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    border: 1px solid var(--border-color);
+    max-width: 420px;
+    width: 100%;
+    backdrop-filter: blur(8px);
+}
+
+.main-title {
+    color: var(--text-light);
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 255, 255, 0.1);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.options-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.option-group label {
+    display: block;
+    color: var(--light-square);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#valor-nivel {
+    font-weight: bold;
+    color: var(--accent-gold);
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: var(--dark-square);
+}
+
+.btn-jogar {
+    background-color: var(--dark-square);
+    color: var(--light-square);
+    font-size: 2.2rem;
+    font-family: 'Arial Black', sans-serif;
+    padding: 15px 0;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.5), inset 0 -4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.btn-jogar:hover {
+    background-color: var(--dark-square-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.6), inset 0 -4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-jogar:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6), inset 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+.secondary-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+
+.btn-secondary {
+    flex: 1;
+    text-align: center;
+    background-color: transparent;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 12px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    border-color: var(--light-square);
+    color: #fff;
+    background-color: rgba(255,255,255,0.05);
+}
+
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--light-square);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background: #1a1a1a;
+    padding: 10px 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.btn-voltar:hover {
+    background: #2a2a2a;
+    transform: translateY(-2px);
+}
+
+.btn-perfil-topo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: #2a2a2a;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.btn-perfil-topo:hover {
+    border-color: var(--dark-square-hover);
+    transform: scale(1.08);
+}
+
+.btn-perfil-topo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.mode-card {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 18px;
+    text-decoration: none;
+    color: var(--light-square);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mode-card:hover {
+    background-color: rgba(119, 149, 86, 0.15);
+    border-color: var(--dark-square-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.mode-card h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--accent-gold);
+    transition: color 0.2s;
+}
+
+.mode-card:hover h3 {
+    color: #fff;
+}
+
+.mode-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+    margin: 0;
+    transition: color 0.2s;
+}
+
+.mode-card:hover p {
+    color: var(--text-light);
+}
+
+
+.color-btn:hover {
+    background-color: #4d4d4d;
+    transform: translateY(-2px);
+}
+
+.color-btn.active {
+    border-color: var(--dark-square-hover);
+    background-color: rgba(119, 149, 86, 0.2);
+    box-shadow: 0 0 12px rgba(139, 177, 102, 0.3);
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.time-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #eee;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #666;
+}
+
+.time-btn.active {
+    background-color: var(--dark-square);
+    color: #fff;
+    border-color: var(--light-square);
+    box-shadow: 0 4px 10px rgba(119, 149, 86, 0.4);
+}
+
+.time-btn small {
+    font-size: 11px;
+    font-weight: normal;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.time-btn.active small {
+    color: #f2e3d5;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .menu-box {
+        padding: 25px 20px;
+        gap: 20px;
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+
+    .btn-jogar {
+        font-size: 1.8rem;
+        padding: 12px 0;
+    }
+
+    .options-panel {
+        padding: 15px;
+    }
+
+    .btn-voltar {
+        font-size: 1rem;
+        padding: 8px 12px;
+        top: 15px;
+        left: 10px;
+    }
+
+    .btn-perfil-topo {
+        width: 40px;
+        height: 40px;
+        top: 15px;
+        right: 10px;
+    }
+
+    .time-grid {
+        gap: 8px;
+    }
+
+    .time-btn {
+        padding: 10px 2px;
+        font-size: 13px;
+    }
+
+    .time-btn small {
+        font-size: 10px;
+    }
+
+    .color-btn {
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+}
+    @media (min-width: 900px)  {
+    .menu-box {
+        padding-top: 30px;
+    }
+}
+
+/* =========================
+   MENU BOX - MOBILE (PADRÃO)
+========================= */
+.menu-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    background-color: var(--bg-menu);
+    padding: 35px;
+    border-radius: 16px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    border: 1px solid var(--border-color);
+
+    max-width: 420px;
+    width: 100%;
+
+    backdrop-filter: blur(8px);
+}
+
+/* força mobile explicitamente (boa prática) */
+@media (max-width: 899px) {
+    .menu-box {
+        max-width: 420px;
+        padding: 25px 20px;
+        gap: 20px;
+    }
+}
+
+/* =========================
+   MENU BOX - DESKTOP
+========================= */
+@media (min-width: 900px) {
+
+    .menu-box {
+        max-width: 600px;     
+        padding: 40px;        
+        gap: 30px;  
+        padding-top: 10px;          
+
+       
+        transform: translateY(-30px); 
+
+       
+    }
+}

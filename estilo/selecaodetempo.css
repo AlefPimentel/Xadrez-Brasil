@@ -1,0 +1,204 @@
+:root {
+    --light-square: #ebecd0;
+    --dark-square: #779556;
+    --dark-square-hover: #8bb166;
+    --bg-main: #312e2b;
+    --bg-card: rgba(26, 26, 26, 0.9);
+    --border-ui: #3d3d3d;
+    --accent-gold: gold;
+}
+
+/* Reset Base */
+.config-body {
+    background-color: var(--bg-main);
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--light-square);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.config-screen-container {
+    width: 100%;
+    padding: 40px 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Card Principal */
+.config-card {
+    background-color: var(--bg-card);
+    padding: 30px 20px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px; /* Celular */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    border: 1px solid var(--border-ui);
+    backdrop-filter: blur(8px);
+}
+
+.config-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #f2e3d5;
+}
+
+/* Layout dos controles */
+.config-layout-split {
+    display: flex;
+    flex-direction: column; /* Celular: Vertical */
+    gap: 25px;
+}
+
+.config-label {
+    display: block;
+    text-align: center;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Grid de Tempo */
+.config-time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.btn-full-width {
+    grid-column: span 3;
+}
+
+/* Estilo dos Botões de Tempo */
+.time-btn, .side-btn, .eval-option-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #eee;
+    border: 1px solid var(--border-ui);
+    border-radius: 8px;
+    padding: 12px 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-btn span { font-size: 14px; font-weight: bold; }
+.time-btn small { font-size: 10px; color: #aaa; }
+.time-btn.active, .side-btn.active, .eval-option-btn.active {
+    background-color: var(--dark-square);
+    border-color: var(--accent-gold);
+    color: white;
+}
+
+/* Opções Direita */
+.config-options-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.eval-btn-row, .side-selection-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.eval-option-btn { width: 70px; height: 40px; font-weight: bold; }
+.side-btn { width: 60px; height: 50px; font-size: 1.5rem; }
+
+/* Botão Jogar */
+.main-play-btn {
+    width: 100%;
+    margin-top: 30px;
+    background-color: var(--dark-square);
+    color: white;
+    font-size: 2rem;
+    font-family: 'Arial Black', sans-serif;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #3e5c26;
+    transition: 0.1s;
+}
+
+.main-play-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #3e5c26;
+}
+
+/* Botão Voltar */
+.config-back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--light-square);
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 100;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 8px;
+}
+
+/* ============================================================
+   VERSÃO DESKTOP (PC) - O SONHO DA HORIZONTALIDADE
+   ============================================================ */
+@media (min-width: 1024px) {
+    .config-body {
+        align-items: center; /* Centraliza verticalmente no PC */
+    }
+
+    .config-card {
+        max-width: 900px; /* Expande para caber as colunas */
+        padding: 40px;
+    }
+
+    .config-layout-split {
+        flex-direction: row; /* Mágica: Lado a Lado */
+        align-items: stretch;
+        gap: 40px;
+    }
+
+    .config-time-section {
+        flex: 1.4; /* Lado do tempo ganha um pouco mais de espaço */
+        border-right: 1px solid var(--border-ui);
+        padding-right: 30px;
+    }
+
+    .config-actions-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Empurra o botão jogar para baixo */
+    }
+
+    .config-time-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas no PC */
+    }
+
+    .btn-full-width {
+        grid-column: span 4;
+    }
+
+    .config-options-panel {
+        background: transparent;
+        padding: 0;
+    }
+
+    .main-play-btn {
+        margin-top: auto; /* Alinha o botão com a base da coluna de tempos */
+        height: 80px;
+    }
+}

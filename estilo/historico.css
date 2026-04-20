@@ -1,0 +1,327 @@
+/* Estilo/historico.css */
+
+:root {
+    --bg-main: #312e2b;
+    --bg-card: #262421;
+    --border-color: #3d3d3d;
+    --text-light: #f2e3d5;
+    --text-muted: #aaa;
+    --win-color: #5c8bb0;
+    --win-bg: rgba(92, 139, 176, 0.15);
+    --loss-color: #cc3333;
+    --loss-bg: rgba(204, 51, 51, 0.15);
+    --draw-color: #888;
+    --draw-bg: rgba(136, 136, 136, 0.15);
+    --btn-green: #779556;
+    --btn-green-hover: #8bb166;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body, html {
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 80px 20px 20px;
+}
+
+.historico-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.btn-voltar-fixo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #1a1a1a;
+    color: var(--text-light);
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.btn-voltar-fixo:hover {
+    background: #2a2a2a;
+    transform: translateY(-2px);
+}
+
+.lista-historico {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    padding-bottom: 30px;
+}
+
+.lista-historico::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lista-historico::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.lista-historico::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+.lista-historico::-webkit-scrollbar-thumb:hover {
+    background: var(--btn-green);
+}
+
+.card-partida {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    border-radius: 14px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 6px solid var(--draw-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-partida:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.card-partida.vitoria {
+    border-left-color: var(--win-color);
+    background-color: var(--win-bg);
+}
+
+.card-partida.derrota {
+    border-left-color: var(--loss-color);
+    background-color: var(--loss-bg);
+}
+
+.card-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.info-jogo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.historico-jogadores {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hist-jogador {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.hist-jogador span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+
+.hist-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.cor-indicador {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: normal;
+    margin-left: auto;
+    background: rgba(0,0,0,0.3);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.info-jogo small {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 2px;
+    display: block;
+}
+
+.acoes-partida {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 12px;
+    min-width: 130px;
+}
+
+.precisao-bloco {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: rgba(0,0,0,0.25);
+    padding: 10px 14px;
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.precisao-bloco div {
+    font-weight: bold;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.p-branca { color: #fff; }
+.p-preta { color: var(--text-muted); }
+
+.btn-analisar, .btn-detalhes {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+}
+
+.btn-analisar {
+    background-color: var(--btn-green);
+    box-shadow: 0 4px 0 #4d6335;
+}
+
+.btn-analisar:hover {
+    background-color: var(--btn-green-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #4d6335;
+}
+
+.btn-analisar:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #4d6335;
+}
+
+.btn-detalhes {
+    background-color: var(--win-color);
+    box-shadow: 0 4px 0 #3b5e7a;
+}
+
+.btn-detalhes:hover {
+    background-color: #72a8d4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #3b5e7a;
+}
+
+.btn-detalhes:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3b5e7a;
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 60px 10px 10px;
+    }
+
+    .historico-titulo {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    .btn-voltar-fixo {
+        top: 15px;
+        left: 10px;
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    .card-partida {
+        padding: 15px;
+    }
+
+    .card-conteudo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .acoes-partida {
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    .precisao-bloco {
+        flex: 1;
+        padding: 12px;
+    }
+
+    .btn-analisar, .btn-detalhes {
+        flex: 1;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hist-jogador span {
+        max-width: 180px;
+    }
+}
+

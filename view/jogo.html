@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xadrez Brasil - Partida</title>
+    <link rel="stylesheet" href="../Estilo/tabuleiro.css">
+</head>
+<body>
+
+    <a href="../index.html" class="btn-voltar">⬅ Voltar</a>
+
+    <div class="game-container">
+
+        <div class="player-hud" id="hud-top-container">
+            <div class="player-profile" id="profile-top">
+                <div class="profile-avatar">
+                    <img id="avatar-top" src="/img/img_padrao.jpg" alt="Avatar">
+                </div>
+                <div class="profile-info">
+                    <span id="name-top" class="profile-name">Aguardando...</span>
+                    <span id="rating-top" class="profile-rating">(?)</span>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div id="captured-by-b" class="captured-pieces"></div>
+                <div id="clock-b" class="clock">10:00</div>
+            </div>
+        </div>
+
+        <div class="board-and-bar-wrapper">
+            <div id="eval-container" class="eval-container" style="display: none;">
+                <div id="eval-bar-fill" class="eval-bar-fill"></div>
+                <span id="eval-text" class="eval-text">0.0</span>
+            </div>
+            <div id="chessboard"></div>
+        </div>
+
+        <div class="player-hud" id="hud-bottom-container">
+            
+            <div class="player-profile" id="profile-bottom">
+                <div class="profile-avatar">
+                    <img id="avatar-bottom" src="/img/img_padrao.jpg" alt="Avatar">
+                </div>
+                <div class="profile-info">
+                    <span id="name-bottom" class="profile-name">Visitante</span>
+                    <span id="rating-bottom" class="profile-rating">(800)</span>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div id="captured-by-w" class="captured-pieces"></div>
+                <div id="clock-w" class="clock">10:00</div>
+            </div>
+            
+        </div>
+        
+        <div class="game-control-bar">
+            <button id="btn-undo" class="game-btn">↩️ Desfazer</button>
+            <button id="btn-resign" class="game-btn resign-btn">🏳️ Desistir</button>
+        </div>
+
+    </div>
+
+    <script type="module" src="../Script/main.js"></script>
+    
+</body>
+</html>

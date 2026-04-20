@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xadrez Brasil - Histórico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Estilo/historico.css">
+    
+</head>
+<body>
+
+    <a href="../index.html" class="btn-voltar-fixo">⬅ Voltar</a>
+    
+    <div class="main-container">
+        <h2 class="historico-titulo">HISTÓRICO</h2>
+        
+        <div id="lista-historico" class="lista-historico">
+            <p style="text-align: center; color: #aaa; margin-top: 40px;">Nenhuma partida jogada ainda.</p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { injetarViewAnalisador, exibirRelatorioFinal } from '../Script/analisador/analisador_view.js';
+        import { iniciarAnaliseCompleta } from '../Script/analisador/analisador_partida.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await injetarViewAnalisador();
+
+            const listaContainer = document.getElementById('lista-historico');
+            const stringHistorico = localStorage.getItem('historicoPartidas');
+
+            if (!stringHistorico) return; 
+
+            const historico = JSON.parse(stringHistorico);
+            if (historico.length === 0) return;
+
+            listaContainer.innerHTML = '';
+            const meuNomeFallback = localStorage.getItem('nomeJogador') || "Visitante";
+
+            historico.forEach((partida, index) => {
+                const card = document.createElement('div');
+                
+                let classeResultado = "empate"; 
+                if (partida.resultado === "Vitória") classeResultado = "vitoria";
+                if (partida.resultado === "Derrota") classeResultado = "derrota";
+                
+                card.className = `card-partida ${classeResultado}`;
+
+                let precisaoHTML = '';
+                if (partida.analisada) {
+                    precisaoHTML = `
+                        <div class="precisao-bloco">
+                            <div class="p-branca"><span>⬜</span> <span>${partida.precisaoW}%</span></div>
+                            <div class="p-preta"><span>⬛</span> <span>${partida.precisaoB}%</span></div>
+                        </div>
+                    `;
+                }
+
+                const fallbackImg = "/img/img_padrao.jpg";
+                const imgP = partida.imgPlayer || fallbackImg;
+                const imgO = partida.imgOponente || fallbackImg;
+                const nomeP = partida.nomePlayer || meuNomeFallback;
+                const nomeO = partida.oponente || "Jogador 2";
+
+                let nomeBrancas, nomePretas, imgBrancas, imgPretas;
+
+                if (partida.corJogador === 'w') {
+                    nomeBrancas = nomeP; imgBrancas = imgP;
+                    nomePretas = nomeO;  imgPretas = imgO;
+                } else {
+                    nomeBrancas = nomeO; imgBrancas = imgO;
+                    nomePretas = nomeP;  imgPretas = imgP;
+                }
+
+                card.innerHTML = `
+                    <div class="card-conteudo">
+                        <div class="info-jogo">
+                            <div class="historico-jogadores">
+                                <div class="hist-jogador">
+                                    <img src="${imgBrancas}" class="hist-avatar" onerror="this.src='${fallbackImg}'">
+                                    <span>${nomeBrancas}</span>
+                                    <span class="cor-indicador">(Brancas)</span>
+                                </div>
+                                <div class="hist-jogador">
+                                    <img src="${imgPretas}" class="hist-avatar" onerror="this.src='${fallbackImg}'">
+                                    <span>${nomePretas}</span>
+                                    <span class="cor-indicador">(Pretas)</span>
+                                </div>
+                            </div>
+                            <small>${partida.resultado} • ${partida.data}</small>
+                        </div>
+                        
+                        <div class="acoes-partida">
+                            ${precisaoHTML}
+                            <button class="btn-analisar btn-detalhes" data-index="${index}">Detalhes</button>
+                        </div>
+                    </div>
+                `;
+                listaContainer.appendChild(card);
+            });
+
+            document.querySelectorAll('.btn-detalhes').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = e.target.getAttribute('data-index');
+                    const partida = historico[index];
+                    
+                    localStorage.setItem('partidaEmRevisao', JSON.stringify(partida));
+                    localStorage.setItem('indexHistoricoAnalisado', index);
+                    window.location.href = 'jogo.html'; 
+                });
+            });
+        });
+    </script>
+</body>
+</html>

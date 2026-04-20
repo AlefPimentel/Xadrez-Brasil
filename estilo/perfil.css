@@ -1,0 +1,224 @@
+:root {
+    --light-square: #ebecd0;
+    --dark-square: #779556;
+    --dark-square-hover: #8bb166;
+    --border-color: #3d3d3d;
+    --text-light: #f2e3d5;
+    --text-muted: #aaa;
+    --accent-gold: gold;
+}
+
+/* RESET BASE */
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* CONTAINER */
+.menu-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARD */
+.menu-box {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 95vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* BOTÃO VOLTAR */
+.btn-voltar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* TÍTULO */
+.main-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 30px 0 10px;
+}
+
+/* AVATAR */
+.perfil-avatar-grande {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid var(--dark-square-hover);
+    margin: 10px auto;
+    display: block;
+    object-fit: cover;
+    background-color: #1a1a1a;
+}
+
+/* RATING */
+.rating-box {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* INPUT */
+.input-nome {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: #1a1a1a;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+/* GALERIA */
+.galeria-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.galeria-fotos {
+    flex: 1;
+    overflow-y: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    padding: 10px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+/* ITENS */
+.foto-opcao {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    object-fit: cover;
+    background-color: #1a1a1a;
+    transition: 0.2s;
+}
+
+.foto-opcao:hover {
+    border-color: var(--dark-square-hover);
+    transform: scale(1.05);
+}
+
+/* BOTÃO */
+.btn-salvar {
+    background-color: var(--dark-square);
+    color: #fff;
+    padding: 14px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* =========================
+   MOBILE (<= 480px)
+========================= */
+@media (max-width: 480px) {
+    body {
+        overflow: auto;
+    }
+
+    .menu-box {
+        height: auto;
+    }
+
+    .galeria-fotos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* =========================
+   TABLET / DESKTOP BASE (>480px)
+========================= */
+@media (min-width: 481px) {
+    body {
+        overflow: auto;
+    }
+
+    .menu-box {
+        height: auto;
+        max-height: 95vh;
+    }
+
+    .galeria-container {
+        flex: 0 0 auto;
+        max-height: 320px;
+    }
+}
+
+/* =========================
+   DESKTOP GRANDE (>900px)
+========================= */
+@media (min-width: 900px) {
+
+    .menu-box {
+        max-width: 1000px;
+        height: 90vh;
+
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: auto auto auto 1fr auto;
+        gap: 15px;
+    }
+
+    /* COLUNA ESQUERDA */
+    .main-title,
+    .perfil-avatar-grande,
+    .rating-box,
+    .option-group:first-of-type {
+        grid-column: 1;
+    }
+
+    .perfil-avatar-grande {
+        justify-self: center;
+    }
+
+    /* COLUNA DIREITA */
+    .galeria-container {
+        grid-column: 2;
+        grid-row: 1 / 5;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .galeria-fotos {
+        flex: 1;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    /* BOTÃO */
+    .btn-salvar {
+        grid-column: 2;
+        height: 50px;
+        align-self: end;
+    }
+}

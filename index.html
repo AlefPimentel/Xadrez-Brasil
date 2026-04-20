@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xadrez Brasil - Menu Inicial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Estilo/style.css">
+</head>
+<body>
+
+    <a href="./view/perfil.html" class="btn-perfil-topo" title="Meu Perfil">
+        <img id="img-perfil-index" src="/img/img_padrao.jpg" alt="Perfil">
+    </a>
+
+    <div class="menu-container">
+        <div class="menu-box">
+            
+            <h1 class="main-title">XADREZ</h1>
+            
+            <a href="./view/mododejogo.html" class="btn-jogar">JOGAR</a>
+
+            <div class="secondary-buttons">
+                <a href="./view/historico.html" class="btn-secondary">Histórico</a>
+                <a href="./view/analise.html" class="btn-secondary">Análise</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const imgIndex = document.getElementById("img-perfil-index");
+            
+            // Puxa a foto guardada OU usa a padrão se não houver nenhuma
+            const fotoSalva = localStorage.getItem("imgJogador") || "/img/img_padrao.jpg";
+            imgIndex.src = fotoSalva;
+          
+            imgIndex.onerror = () => { 
+                imgIndex.src = "/img/img_padrao.jpg"; 
+            };
+        });
+    </script>
+</body>
+</html>

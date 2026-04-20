@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xadrez Brasil - Análise</title>
+    <link rel="stylesheet" href="../Estilo/Analise.css">
+</head>
+<body>
+
+    <a href="../index.html" class="btn-voltar">⬅ Voltar</a>
+
+    <div class="container-central">
+        <button id="btn-nova-analise" class="btn-verde-grande">🔍 Nova Análise</button>
+    </div>
+
+    <div id="modal-pgn" class="modal-fundo" style="display: none;">
+        <div class="modal-caixa">
+            <h2>Colar PGN</h2>
+            <p>Cole o texto da partida abaixo para iniciar a análise.</p>
+            
+            <textarea id="pgn-input" placeholder="COLE O PGN AQUI"></textarea>
+            
+            <div class="modal-botoes">
+                <button id="btn-fechar-modal" class="btn-secundario">Cancelar</button>
+                <button id="btn-iniciar-pgn" class="btn-primario">Analisar Partida</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../Script/revisao/Analise.js"></script>
+</body>
+</html>

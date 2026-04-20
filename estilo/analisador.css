@@ -1,0 +1,265 @@
+/* analisafor.css */
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background-color: #262421;
+    border: 1px solid #3d3d3d;
+    border-radius: 16px;
+    padding: 30px;
+    width: 90%;
+    max-width: 420px;
+    color: #f2e3d5;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    font-family: Arial, sans-serif;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.titulo-modal {
+    text-align: center;
+    margin: 0 0 8px 0;
+    font-size: 1.8rem;
+    color: #fff;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.texto-motivo {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.texto-explicativo {
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+.titulo-progresso {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.texto-progresso {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: #888;
+}
+
+.titulo-relatorio {
+    text-align: center;
+    margin: 0 0 20px 0;
+    border-bottom: 2px solid #3d3d3d;
+    padding-bottom: 12px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.botoes-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-modal-sair {
+    flex: 1;
+    background-color: #3d3d3d;
+    color: #ccc;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 0 #222;
+    transition: all 0.2s ease;
+}
+
+.btn-modal-sair:hover {
+    background-color: #4d4d4d;
+    color: #fff;
+}
+
+.btn-modal-analisar {
+    flex: 2;
+    background-color: #779556;
+    color: #fff;
+    border: none;
+    padding: 14px 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 0 #4d6335;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-modal-analisar:hover {
+    background-color: #8bb166;
+}
+
+.btn-modal-rever {
+    width: 100%;
+    margin-top: 25px;
+    background-color: #3d3d3d;
+    color: #fff;
+    border: none;
+    padding: 15px 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 0 #222;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-modal-rever:hover {
+    background-color: #4d4d4d;
+}
+
+.btn-modal-sair:active, .btn-modal-analisar:active, .btn-modal-rever:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 transparent;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 16px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #3d3d3d;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #779556;
+    box-shadow: 0 0 10px rgba(119, 149, 86, 0.8);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stats-comparison {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    background-color: #333;
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.stat-row:hover {
+    background-color: #3d3d3d;
+}
+
+.stat-row.header {
+    background-color: transparent;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-radius: 0;
+    color: #aaa;
+}
+
+.stat-row.header:hover {
+    background-color: transparent;
+}
+
+.stat-label {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #eee;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.brilhante { background-color: #1baca6; box-shadow: 0 0 10px #1baca6; }
+.uau       { background-color: #5c8bb0; }
+.otima     { background-color: #81b64c; }
+.ok        { background-color: #9eb47b; }
+.impreciso { background-color: #f6b538; }
+.mal       { background-color: #ff7733; }
+.pessima   { background-color: #cc3333; }
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .titulo-modal {
+        font-size: 1.5rem;
+    }
+
+    .texto-motivo {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .botoes-container {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .btn-modal-sair, .btn-modal-analisar {
+        width: 100%;
+        flex: none;
+    }
+
+    .stat-row {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        margin-right: 8px;
+    }
+}
+
+

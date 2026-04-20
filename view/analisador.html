@@ -1,0 +1,69 @@
+<div id="modal-fim-jogo" class="modal-overlay" style="display:none;">
+
+    <div class="modal-content">
+
+        <h2 id="titulo-fim-jogo" class="titulo-modal">Fim de Partida</h2>
+
+        <p id="motivo-fim-jogo" class="texto-motivo">
+            As Brancas venceram por Xeque-Mate.
+        </p>
+
+        <div id="painel-pre-analise">
+            <p class="texto-explicativo">
+                Deseja descobrir a precisão dos lances desta partida?
+            </p>
+
+            <div class="botoes-container">
+                <a href="../index.html" class="btn-modal-sair">
+                    Sair
+                </a>
+                <button id="btn-iniciar-analise" class="btn-modal-analisar">
+                    🔍 Analisar Partida
+                </button>
+            </div>
+        </div>
+
+        <div id="painel-progresso" class="painel-progresso" style="display: none;">
+            <p class="titulo-progresso">
+                Analisando a partida...
+            </p>
+            <div class="progress-bar-bg">
+                <div id="barra-progresso-fill" class="progress-bar-fill"></div>
+            </div>
+            <p id="texto-progresso" class="texto-progresso">
+                0 / 0 lances analisados
+            </p>
+        </div>
+
+        <div id="painel-relatorio" style="display: none;">
+            <h3 class="titulo-relatorio">
+                Relatório de Precisão
+            </h3>
+
+            <div class="stats-comparison">
+                <div class="stat-row header">
+                    <span></span>
+                    <span style="color: #fff;">⬜ Brancas</span>
+                    <span style="color: #aaa;">⬛ Pretas</span>
+                </div>
+                <div class="stat-row" style="background-color: #4b4847; margin-bottom: 5px;">
+                    <span class="stat-label" style="color: #f1c40f; font-size: 16px;">🎯 Precisão</span>
+                    <b id="w-precisao" style="font-size: 16px; color: #fff;">0%</b>
+                    <b id="b-precisao" style="font-size: 16px; color: #aaa;">0%</b>
+                </div>
+                
+                <div class="stat-row"><span class="stat-label"><span class="dot brilhante"></span> Brilhante</span><b id="w-brilhante">0</b><b id="b-brilhante">0</b></div>
+                <div class="stat-row"><span class="stat-label"><span class="dot uau"></span> Uau</span><b id="w-uau">0</b><b id="b-uau">0</b></div>
+                <div class="stat-row"><span class="stat-label"><span class="dot otima"></span> Ótima</span><b id="w-otima">0</b><b id="b-otima">0</b></div>
+                <div class="stat-row"><span class="stat-label"><span class="dot ok"></span> Ok</span><b id="w-ok">0</b><b id="b-ok">0</b></div>
+                <div class="stat-row"><span class="stat-label"><span class="dot impreciso"></span> Impreciso</span><b id="w-impreciso">0</b><b id="b-impreciso">0</b></div>
+                <div class="stat-row"><span class="stat-label"><span class="dot mal"></span> Mal</span><b id="w-mal">0</b><b id="b-mal">0</b></div>
+                <div class="stat-row"><span class="stat-label"><span class="dot pessima"></span> Péssima</span><b id="w-pessima">0</b><b id="b-pessima">0</b></div>
+            </div>
+
+            <button id="btn-rever-lances" class="btn-modal-rever">
+                Ver Tabuleiro
+            </button>
+        </div>
+    </div>
+</div>
